@@ -24,6 +24,11 @@ npm-debug.*
 yarn-debug.*
 yarn-error.*
 
+# lock
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+
 # macOS
 .DS_Store
 *.pem
