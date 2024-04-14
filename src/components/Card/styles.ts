@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-import { ArrowUpRight } from 'phosphor-react-native';
+import { ArrowLeft, ArrowUpRight } from 'phosphor-react-native';
 
 import { FontSize } from '@components/Typography/types';
 
@@ -30,8 +30,46 @@ export const CardContainer = styled.View<ICardColorProps>`
   border-radius: 8px;
 
   padding: 16px;
+
+  position: relative;
 `;
 
-export const CardArrowButton = styled.TouchableOpacity``;
+export const CardArrowRightButton = styled.TouchableOpacity.attrs(() => ({
+  activeOpacity: 0.5,
+}))`
+  position: absolute;
+  top: 8px;
+  right: 8px;
+`;
 
-export const IconArrowUpRight = styled(ArrowUpRight)``;
+export const IconArrowUpRight = styled(ArrowUpRight).attrs<ICardColorProps>(
+  ({ theme, background }) => ({
+    size: 24,
+    color:
+      background === 'green'
+        ? theme.COLORS.GREEN_200
+        : background === 'red'
+          ? theme.COLORS.RED_200
+          : theme.COLORS.GRAY_600,
+  }),
+)``;
+
+export const CardArrowLeftButton = styled.TouchableOpacity.attrs(() => ({
+  activeOpacity: 0.5,
+}))`
+  position: absolute;
+  top: 8px;
+  left: 8px;
+`;
+
+export const IconArrowLeft = styled(ArrowLeft).attrs<ICardColorProps>(
+  ({ theme, background }) => ({
+    size: 24,
+    color:
+      background === 'green'
+        ? theme.COLORS.GREEN_200
+        : background === 'red'
+          ? theme.COLORS.RED_200
+          : theme.COLORS.GRAY_600,
+  }),
+)``;

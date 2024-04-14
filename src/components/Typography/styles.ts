@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components/native";
+import styled, { css } from 'styled-components/native';
 
-import { Colors, FontFamily, FontSize, LineHeight, TextAlign } from "./types";
+import { Colors, FontFamily, FontSize, LineHeight, TextAlign } from './types';
 
 export type ITypographyStylesProps = {
   fontFamily?: FontFamily;
@@ -8,7 +8,7 @@ export type ITypographyStylesProps = {
   textAlign?: TextAlign;
   lineHeight?: LineHeight;
   color?: Colors;
-}
+};
 
 export const TypographyContainer = styled.Text<ITypographyStylesProps>`
   ${({ theme, textAlign, fontFamily, fontSize, color, lineHeight }) => css`
@@ -16,8 +16,7 @@ export const TypographyContainer = styled.Text<ITypographyStylesProps>`
     font-size: ${theme.FONT_SIZE[fontSize ?? 'MD']}px;
     color: ${theme.COLORS[color ?? 'GRAY_600']};
 
-    text-align: ${textAlign ? textAlign : 'left'};
-    line-height: ${theme.LINE_HEIGHT[lineHeight ?? 'LG']}px;
+    text-align: ${textAlign || 'left'};
+    line-height: ${theme.LINE_HEIGHT[lineHeight ?? 'MD']}px;
   `};
-
-`
+`;
