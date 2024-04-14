@@ -2,7 +2,9 @@ export default {
   COLORS: {
     WHITE: '#FFFFFF',
 
-    RED_DARK: '#BF3B44',
+    RED_50: '#F4E6E7',
+    RED_100: '#F3BABD',
+    RED_200: '#BF3B44',
 
     GREEN_50: '#E5F0DB',
     GREEN_100: '#CBE4B4',
@@ -18,7 +20,7 @@ export default {
   },
   FONT_FAMILY: {
     REGULAR: 'NunitoSans_400Regular',
-    BOLD: 'NunitoSans_700Bold'
+    BOLD: 'NunitoSans_700Bold',
   },
   FONT_SIZE: {
     XSM: 12,
@@ -26,12 +28,12 @@ export default {
     MD: 16,
     LG: 18,
     XL: 24,
-    XXL: 32
+    XXL: 32,
   },
   LINE_HEIGHT: {
-		XS: 15,
-		SM: 18,
-		MD: 20,
-		LG: 35,
-	},
-}
+    XS: 15,
+    SM: 18,
+    MD: 20,
+    LG: 35,
+  },
+};

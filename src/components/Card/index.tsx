@@ -1,18 +1,31 @@
-import { ViewProps } from "react-native";
+import { Typography } from '@components/Typography';
 
-import { Typography } from "@components/Typography";
+import {
+  CardArrowButton,
+  CardContainer,
+  ICardColorProps,
+  ITextSize,
+  IconArrowUpRight,
+} from './styles';
 
-import { CardContainer } from "./styles";
-
-interface ICardProps extends ViewProps {
+interface ICardProps extends ICardColorProps, ITextSize {
   title: string;
   subtitle: string;
 }
 
-export function Card({ title, subtitle, ...rest }: ICardProps) {
+export function Card({
+  title,
+  subtitle,
+  background = 'gray',
+  titleFontSize = 'XXL',
+}: ICardProps) {
   return (
-    <CardContainer {...rest}>
-      <Typography fontSize="XXL" lineHeight="LG" fontFamily="BOLD">
+    <CardContainer background={background}>
+      <CardArrowButton>
+        <IconArrowUpRight />
+      </CardArrowButton>
+
+      <Typography fontSize={titleFontSize} lineHeight="LG" fontFamily="BOLD">
         {title}
       </Typography>
 
@@ -20,5 +33,5 @@ export function Card({ title, subtitle, ...rest }: ICardProps) {
         {subtitle}
       </Typography>
     </CardContainer>
-  )
+  );
 }
