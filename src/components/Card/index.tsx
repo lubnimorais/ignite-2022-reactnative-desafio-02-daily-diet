@@ -1,3 +1,5 @@
+import { ViewProps } from 'react-native';
+
 import { Typography } from '@components/Typography';
 
 import {
@@ -10,7 +12,7 @@ import {
   IconArrowUpRight,
 } from './styles';
 
-interface ICardProps extends ICardColorProps, ITextSize {
+interface ICardProps extends ViewProps, ICardColorProps, ITextSize {
   title: string;
   subtitle: string;
   iconPosition?: 'left' | 'right';
@@ -26,17 +28,22 @@ export function Card({
   background = 'gray',
   titleFontSize = 'XXL',
   onIconButtonPress,
+  ...rest
 }: ICardProps) {
   return (
-    <CardContainer background={background}>
-      {showIconButton && iconPosition === 'left' ? (
-        <CardArrowLeftButton onPress={onIconButtonPress}>
-          <IconArrowLeft background={background} />
-        </CardArrowLeftButton>
+    <CardContainer background={background} {...rest}>
+      {showIconButton ? (
+        iconPosition === 'left' ? (
+          <CardArrowLeftButton onPress={onIconButtonPress}>
+            <IconArrowLeft background={background} />
+          </CardArrowLeftButton>
+        ) : (
+          <CardArrowRightButton onPress={onIconButtonPress}>
+            <IconArrowUpRight background={background} />
+          </CardArrowRightButton>
+        )
       ) : (
-        <CardArrowRightButton onPress={onIconButtonPress}>
-          <IconArrowUpRight background={background} />
-        </CardArrowRightButton>
+        <CardArrowLeftButton onPress={onIconButtonPress} />
       )}
 
       <Typography fontSize={titleFontSize} lineHeight="LG" fontFamily="BOLD">

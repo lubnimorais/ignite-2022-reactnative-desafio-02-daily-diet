@@ -1,10 +1,18 @@
 import { StatusBar } from 'react-native';
 
-import { useFonts, NunitoSans_400Regular, NunitoSans_700Bold } from '@expo-google-fonts/nunito-sans';
+import {
+  useFonts,
+  NunitoSans_400Regular,
+  NunitoSans_700Bold,
+} from '@expo-google-fonts/nunito-sans';
+
 import { ThemeProvider } from 'styled-components/native';
 
 import theme from './src/theme';
+
 import { HomeScreen } from '@screens/Home';
+import { StatisticScreen } from '@screens/Statistics';
+
 import { Loading } from '@components/Loading';
 
 export default function App() {
@@ -12,15 +20,13 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <StatusBar 
-        barStyle="dark-content" 
-        backgroundColor="transparent" 
-        translucent 
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor="transparent"
+        translucent
       />
 
-      {fontsLoaded ? <HomeScreen /> : <Loading />}
+      {fontsLoaded ? <StatisticScreen /> : <Loading />}
     </ThemeProvider>
   );
 }
-
-
